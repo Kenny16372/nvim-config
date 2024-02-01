@@ -41,7 +41,7 @@ local plugins = {
   {
     "stevearc/conform.nvim",
     --  for users those who want auto-save conform + lazyloading!
-    event = "BufWritePre",
+    event = { "BufWritePre" },
     config = function()
       require "custom.configs.conform"
     end,
@@ -52,10 +52,10 @@ local plugins = {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      require("copilot").setup({
+      require("copilot").setup {
         suggestion = { enabled = false },
         panel = { enabled = false },
-      })
+      }
     end,
     opts = overrides.copilot,
   },
